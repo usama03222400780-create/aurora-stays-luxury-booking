@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Stays - Luxury Hotel Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="assets/logo.svg" alt="Aurora Stays Logo" class="logo">
+                <span class="brand-name">Aurora Stays</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+                <li><a href="pages/rooms.html">Rooms & Suites</a></li>
+                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="pages/bookings.html">Bookings</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero">
+        <div class="slider-container">
+            <div class="slide fade">
+                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&h=600&fit=crop" alt="Luxury Suite">
+                <div class="slide-caption">
+                    <h1>Welcome to Aurora Stays</h1>
+                    <p>Experience Luxury & Comfort</p>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop" alt="Ocean View">
+                <div class="slide-caption">
+                    <h1>Beachfront Elegance</h1>
+                    <p>Premium Waterfront Properties</p>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=600&fit=crop" alt="Spa">
+                <div class="slide-caption">
+                    <h1>World-Class Spa</h1>
+                    <p>Relax & Rejuvenate</p>
+                </div>
+            </div>
+            <div class="slide fade">
+                <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=1200&h=600&fit=crop" alt="Restaurant">
+                <div class="slide-caption">
+                    <h1>Fine Dining Experience</h1>
+                    <p>Culinary Excellence</p>
+                </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+            <!-- Slider Dots -->
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Booking Section -->
+    <section class="quick-booking">
+        <div class="container">
+            <h2>Plan Your Stay</h2>
+            <form class="booking-form" id="quickBookingForm">
+                <div class="form-group">
+                    <label for="checkIn">Check-in Date</label>
+                    <input type="date" id="checkIn" name="checkIn" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkOut">Check-out Date</label>
+                    <input type="date" id="checkOut" name="checkOut" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select Guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Room Type</label>
+                    <select id="roomType" name="roomType" required>
+                        <option value="">Select Room Type</option>
+                        <option value="standard">Standard Room</option>
+                        <option value="deluxe">Deluxe Room</option>
+                        <option value="suite">Luxury Suite</option>
+                        <option value="penthouse">Penthouse Suite</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Check Availability</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Featured Rooms Section -->
+    <section class="featured-rooms">
+        <div class="container">
+            <h2>Featured Rooms</h2>
+            <p class="section-subtitle">Discover our most luxurious accommodations</p>
+            <div class="rooms-grid">
+                <!-- Room Card 1 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop" alt="Luxury Suite">
+                        <div class="room-overlay">
+                            <button class="btn btn-secondary" onclick="openRoomDetails('Luxury Suite')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Luxury Suite</h3>
+                        <p class="room-description">Premium suite with ocean view</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler"></i> 450 sqft</span>
+                            <span><i class="fas fa-users"></i> 2-4 Guests</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$599</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 2 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" alt="Deluxe Room">
+                        <div class="room-overlay">
+                            <button class="btn btn-secondary" onclick="openRoomDetails('Deluxe Room')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Deluxe Room</h3>
+                        <p class="room-description">Spacious room with balcony</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler"></i> 350 sqft</span>
+                            <span><i class="fas fa-users"></i> 2 Guests</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$399</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 3 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=400&h=300&fit=crop" alt="Standard Room">
+                        <div class="room-overlay">
+                            <button class="btn btn-secondary" onclick="openRoomDetails('Standard Room')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Standard Room</h3>
+                        <p class="room-description">Comfortable room with city view</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler"></i> 250 sqft</span>
+                            <span><i class="fas fa-users"></i> 1-2 Guests</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$249</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Card 4 -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Penthouse Suite">
+                        <div class="room-overlay">
+                            <button class="btn btn-secondary" onclick="openRoomDetails('Penthouse Suite')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="room-info">
+                        <h3>Penthouse Suite</h3>
+                        <p class="room-description">Exclusive penthouse with private pool</p>
+                        <div class="room-features">
+                            <span><i class="fas fa-ruler"></i> 600 sqft</span>
+                            <span><i class="fas fa-users"></i> 4-6 Guests</span>
+                        </div>
+                        <div class="room-price">
+                            <span class="price">$899</span>
+                            <span class="per-night">per night</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2>Our Premium Services</h2>
+            <p class="section-subtitle">World-class amenities and services</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Fine Dining Restaurant</h3>
+                    <p>Award-winning cuisine prepared by our expert chefs</p>
+                    <a href="pages/services.html#restaurant" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Luxury Spa</h3>
+                    <p>Ultimate relaxation with world-class spa treatments</p>
+                    <a href="pages/services.html#spa" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Fitness Center</h3>
+                    <p>State-of-the-art gym and wellness facilities</p>
+                    <a href="pages/services.html#fitness" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3>Swimming Pool</h3>
+                    <p>Infinity pool with stunning ocean views</p>
+                    <a href="pages/services.html#pool" class="service-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2>Guest Reviews</h2>
+            <p class="section-subtitle">What our guests say about Aurora Stays</p>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Exceptional Experience</h3>
+                    <p>"Aurora Stays exceeded all our expectations. The staff was incredibly friendly and the rooms are absolutely stunning. We will definitely return!"</p>
+                    <div class="review-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Verified Guest</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Perfect Getaway</h3>
+                    <p>"The beachfront location is unbeatable. The spa service was relaxing and the restaurant food was delicious. Highly recommended!"</p>
+                    <div class="review-author">
+                        <strong>Michael Chen</strong>
+                        <span>Verified Guest</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Luxury Redefined</h3>
+                    <p>"Best hotel experience ever! Every detail is perfect from the room amenities to the customer service. Worth every penny!"</p>
+                    <div class="review-author">
+                        <strong>Emma Williams</strong>
+                        <span>Verified Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations">
+        <div class="container">
+            <h2>Our Premium Locations</h2>
+            <p class="section-subtitle">Choose from our exclusive properties</p>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1551092160-e23faaf46dd5?w=400&h=300&fit=crop" alt="DHA Phase 7">
+                    <h3>DHA Phase 7 Extension</h3>
+                    <p>Elegant urban location in the heart of the city</p>
+                    <a href="pages/contact.html#locations" class="btn btn-secondary">View Location</a>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="DHA Phase 8">
+                    <h3>DHA Phase 8 Emaar Ocean Front</h3>
+                    <p>Stunning beachfront resort with premium amenities</p>
+                    <a href="pages/contact.html#locations" class="btn btn-secondary">View Location</a>
+                </div>
+                <div class="location-card">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" alt="DHA Phase 6">
+                    <h3>DHA Phase 6 Nishat Commercial</h3>
+                    <p>Modern commercial district location for business travelers</p>
+                    <a href="pages/contact.html#locations" class="btn btn-secondary">View Location</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive offers and updates delivered to your inbox</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Aurora Stays</h4>
+                    <p>Luxury hotel booking platform offering premium accommodations and world-class services.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/rooms.html">Rooms</a></li>
+                        <li><a href="pages/services.html">Services</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Phone: <a href="tel:+923423996443">+92 342 3996443</a></p>
+                    <p>Email: <a href="mailto:info@aurorastays.com">info@aurorastays.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://facebook.com/aurorastays" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/aurorastays" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/aurorastays" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com/@aurorastays" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/923423996443" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aurora Stays. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Room Details Modal -->
+    <div id="roomModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRoomDetails()">&times;</span>
+            <div id="roomDetailsContent"></div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/923423996443" class="whatsapp-btn" target="_blank" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
